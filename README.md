@@ -113,6 +113,8 @@ https://reqres.in/api/unknown?per_page=3
 
 and this all needs to be cached on the ``CachedResourceServer`` class.
 
+More details about the API here: [https://reqres.in/](https://reqres.in/).
+
 To solve this you will be using method overloading and method overriding to extend what ``CachedResourceServer`` does. Checkout the ``CachedResourcesTests`` test class for more details.
 
 # Solution

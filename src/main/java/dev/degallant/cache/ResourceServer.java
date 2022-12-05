@@ -17,18 +17,6 @@ public class ResourceServer {
         return makeRequest("unknown/" + id);
     }
 
-    public String getResources() {
-        return makeRequest("unknown");
-    }
-
-    public String getResources(int page) {
-        return makeRequest("unknown?page=" + page);
-    }
-
-    public String getResources(int page, int perPage) {
-        return makeRequest("unknown?page=" + page + "&per_page=" + perPage);
-    }
-
     protected String makeRequest(String endpoint) {
 
         try {

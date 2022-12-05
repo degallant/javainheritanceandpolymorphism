@@ -43,6 +43,7 @@ public class CachedResourceServer extends ResourceServer {
     }
 
     private String getFromCacheOrFetch(String key, boolean refresh, Supplier<String> request) {
+        lastHitKey = null;
         if (cache.containsKey(key) && !refresh) {
             lastHitKey = key;
             return cache.get(key);

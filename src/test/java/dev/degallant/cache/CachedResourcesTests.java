@@ -8,7 +8,6 @@ class CachedResourcesTests {
 
     @Test
     public void cacheIsHitOnSecondRequest() {
-
         var server = new CachedResourceServer();
 
         String firstResponse = server.getResource(1);
@@ -18,7 +17,20 @@ class CachedResourcesTests {
         String secondResponse = server.getResource(1);
         String lastCacheHit = server.getLastCacheHit();
         assertEquals(secondResponse, lastCacheHit);
+    }
 
+    @Test
+    public void cacheIsInvalidated() {
+        var server = new CachedResourceServer();
+
+        server.getResource(1);
+        assertNull(server.getLastCacheHit());
+
+        server.getResource(1);
+        assertNotNull(server.getLastCacheHit());
+
+        server.getResource(1, true);
+        assertNull(server.getLastCacheHit());
     }
 
     @Test
